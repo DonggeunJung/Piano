@@ -15,13 +15,11 @@ This is a sample project of JGameLib for education.
 <br>
 <br>
                                                                                                                    
-How to play this game :
-
+How to play this game :<br>
 : Play music by touching keyboard. Press left-top Button to change octave.
 <br>
 <br>
-< Additional Infomation >
-
-GitHub Link : https://github.com/DonggeunJung/Piano
-
+                                                                                                                   
+< Additional Infomation ><br>
+GitHub Link : https://github.com/DonggeunJung/Piano<br>
 Any question => Email : topsan72@gmail.com / Author : Donggeun Jung (Dennis)
