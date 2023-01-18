@@ -1,5 +1,5 @@
 /* JGameLib_Java : 2D Game library for education      */
-/* Date : 2023.Jan.04 ~ 2023.Jan.15                   */
+/* Date : 2023.Jan.04 ~ 2023.Jan.18                   */
 /* Author : Dennis (Donggeun Jung)                    */
 /* Contact : topsan72@gmail.com                       */
 package com.example.piano;
@@ -1039,8 +1039,8 @@ public class JGameLib extends View implements SensorEventListener {
                 blockY = getBlocksVertical(pixelY);
                 break;
             case MotionEvent.ACTION_MOVE :
-                blockX = getBlocksHorizontal(pixelX - touchX);
-                blockY = getBlocksVertical(pixelY - touchY);
+                blockX = getBlocksHorizontal(pixelX) - getBlocksHorizontal(touchX);
+                blockY = getBlocksVertical(pixelY) - getBlocksVertical(touchY);
                 break;
             case MotionEvent.ACTION_UP :
                 touchedCard = null;
