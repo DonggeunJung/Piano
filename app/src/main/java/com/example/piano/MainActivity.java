@@ -63,19 +63,12 @@ public class MainActivity extends AppCompatActivity implements JGameLib.GameEven
             divIdx --;
         if(whiteIdx >= 7)
             divIdx += 12;
-        if(isMain) {
+        if(isMain)
             return divIdx;
-        }
-        switch((int)axisX % 3) {
-            case 0:
-                if(divIdx > 0)
-                    divIdx --;
-                break;
-            case 2:
-                if(divIdx < 23)
-                    divIdx ++;
-                break;
-        }
+        if((int)axisX % 3 == 0 && divIdx > 0)
+            divIdx --;
+        else if((int)axisX % 3 == 2 && divIdx < 23)
+            divIdx ++;
         return divIdx;
     }
 
