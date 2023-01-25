@@ -81,9 +81,9 @@ public class MainActivity extends AppCompatActivity implements JGameLib.GameEven
     public void onGameWorkEnded(JGameLib.Card card, JGameLib.WorkType workType) {}
 
     @Override
-    public void onGameTouchEvent(JGameLib.Card card, int action, float blockX, float blockY) {
+    public void onGameTouchEvent(JGameLib.Card card, int action, float x, float y) {
         if(action == MotionEvent.ACTION_DOWN) {
-            int keyIdx = keyIndex(blockX, blockY);
+            int keyIdx = keyIndex(x, y);
             keyIdx += (octaveStart * 12);
             gameLib.playAudioBeep(audioRes[keyIdx]);
         }
@@ -96,5 +96,5 @@ public class MainActivity extends AppCompatActivity implements JGameLib.GameEven
     public void onGameCollision(JGameLib.Card card1, JGameLib.Card card2) {}
 
     @Override
-    public void onGameTimer(int what) {}
+    public void onGameTimer() {}
 }
