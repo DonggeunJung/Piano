@@ -8,11 +8,11 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity implements JGameLib.GameEvent {
+public class MainActivity extends AppCompatActivity implements Mosaic.GameEvent {
     Button btnOctave;
     int screenW = 42, screenH = 14;
-    JGameLib gameLib;
-    JGameLib.Card cardDo0, cardDo1;
+    Mosaic mosaic;
+    Mosaic.Card cardDo0, cardDo1;
     int[] audioRes = {R.raw.piano_3_0, R.raw.piano_3_1, R.raw.piano_3_2, R.raw.piano_3_3,
             R.raw.piano_3_4, R.raw.piano_3_5, R.raw.piano_3_6, R.raw.piano_3_7,
             R.raw.piano_3_8, R.raw.piano_3_9, R.raw.piano_3_10, R.raw.piano_3_11,
@@ -31,17 +31,17 @@ public class MainActivity extends AppCompatActivity implements JGameLib.GameEven
         setContentView(R.layout.activity_main);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         btnOctave = findViewById(R.id.btnOctave);
-        gameLib = findViewById(R.id.gameLib);
+        mosaic = findViewById(R.id.mosaic);
         initGame();
     }
 
     void initGame() {
-        gameLib.listener(this);
-        gameLib.setScreenGrid(screenW, screenH);
-        gameLib.addCard(R.drawable.piano_keyboard);
-        cardDo0 = gameLib.addCardColor(Color.TRANSPARENT, 0,11,3,3);
+        mosaic.listener(this);
+        mosaic.setScreenGrid(screenW, screenH);
+        mosaic.addCard(R.drawable.piano_keyboard);
+        cardDo0 = mosaic.addCardColor(Color.TRANSPARENT, 0,11,3,3);
         cardDo0.text("", Color.BLACK, 0.8);
-        cardDo1 = gameLib.addCardColor(Color.TRANSPARENT, 21,11,3,3);
+        cardDo1 = mosaic.addCardColor(Color.TRANSPARENT, 21,11,3,3);
         cardDo1.text("", Color.BLACK, 0.8);
         setOctave();
     }
@@ -78,14 +78,14 @@ public class MainActivity extends AppCompatActivity implements JGameLib.GameEven
     }
 
     @Override
-    public void onGameWorkEnded(JGameLib.Card card, JGameLib.WorkType workType) {}
+    public void onGameWorkEnded(Mosaic.Card card, Mosaic.WorkType workType) {}
 
     @Override
-    public void onGameTouchEvent(JGameLib.Card card, int action, float x, float y) {
+    public void onGameTouchEvent(Mosaic.Card card, int action, float x, float y) {
         if(action == MotionEvent.ACTION_DOWN) {
             int keyIdx = keyIndex(x, y);
             keyIdx += (octaveStart * 12);
-            gameLib.playAudioBeep(audioRes[keyIdx]);
+            mosaic.playAudioBeep(audioRes[keyIdx]);
         }
     }
 
@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity implements JGameLib.GameEven
     public void onGameSensor(int sensorType, float x, float y, float z) {}
 
     @Override
-    public void onGameCollision(JGameLib.Card card1, JGameLib.Card card2) {}
+    public void onGameCollision(Mosaic.Card card1, Mosaic.Card card2) {}
 
     @Override
     public void onGameTimer() {}

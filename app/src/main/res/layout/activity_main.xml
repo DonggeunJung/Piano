@@ -12,12 +12,12 @@
         android:layout_height="wrap_content"
         android:text="Octave"
         android:onClick="onBtnOctave"
-        app:layout_constraintBottom_toTopOf="@+id/gameLib"
+        app:layout_constraintBottom_toTopOf="@+id/mosaic"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.example.piano.JGameLib
-        android:id="@+id/gameLib"
+    <com.example.piano.Mosaic
+        android:id="@+id/mosaic"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
