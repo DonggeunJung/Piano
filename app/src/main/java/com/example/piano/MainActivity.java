@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity implements Mosaic.GameEvent 
     public void onGameWorkEnded(Mosaic.Card card, Mosaic.WorkType workType) {}
 
     @Override
-    public void onGameTouchEvent(Mosaic.Card card, int action, float x, float y) {
+    public void onGameTouchEvent(Mosaic.Card card, int action, float x, float y, MotionEvent event) {
         if(action == MotionEvent.ACTION_DOWN) {
             int keyIdx = keyIndex(x, y);
             keyIdx += (octaveStart * 12);
